@@ -8,12 +8,18 @@
 
 :root {
     /* colors */
-    --color-alpha-light: MEDIUMSLATEBLUE;
-    --color-alpha: SLATEBLUE;
+    --color-alpha-light: #A3A0FB80;
+    --color-alpha: #A3A0FB;
 
-    --color-neutral-light: LIGHTSLATEGRAY;
-    --color-neutral: SLATEGRAY;
-    --color-neutral-dark: DARKSLATEGRAY;
+    --color-neutral-xxxx-light: #F0F0F7;
+    --color-neutral-xxx-light: #EBEBF2;
+    --color-neutral-xx-light: #D7DAE2;
+    --color-neutral-x-light: #BCBCCB;
+    --color-neutral-light: #A5A4BF;
+    --color-neutral: #808495;
+    --color-neutral-dark: #4D4F5C;
+    --color-neutral-x-dark: #43425D;
+    --color-neutral-xx-dark: #3B3B53;
 
     /* Shadows */
 
@@ -21,6 +27,7 @@
 
     /* transitions */
     --transition-alpha: .1s;
+    --transition-beta: 1s;
 }
 
 /*------------------------------------*\
@@ -34,14 +41,14 @@
 */
 
 html {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5;
-    font-family: Helvetica, arial, sans-serif;
+    font-family: "Source Sans Pro", Helvetica, arial, sans-serif;
     color: var(--color-neutral-dark);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: white;
+    background-color: var(--color-neutral-xxxx-light);
 }
 
 *,
@@ -99,19 +106,19 @@ h3 {
 h1 {
     font-size: 36px;
     line-height: 48px;
-    margin: 0 0 24px;
+    margin: 0 0 30px;
 }
 
 h2 {
     font-size: 32px;
     line-height: 40px;
-    margin: 0 0 24px;
+    margin: 0 0 30px;
 }
 
 h3 {
     font-size: 26px;
     line-height: 32px;
-    margin: 0 0 24px;
+    margin: 0 0 30px;
 }
 
 h4,
@@ -120,7 +127,7 @@ h6 {
     font-size: 16px;
     font-weight: 600;
     line-height: 24px;
-    margin: 0 0 24px;
+    margin: 0 0 30px;
 }
 
 p,
@@ -130,7 +137,7 @@ dl,
 table,
 address,
 figure {
-    margin: 0 0 24px;
+    margin: 0 0 30px;
 }
 
 ul,
@@ -147,7 +154,7 @@ blockquote {
     font-style: normal;
     font-size: 23px;
     line-height: 32px;
-    margin: 0 0 24px;
+    margin: 0 0 30px;
 }
 
 blockquote * {
@@ -166,7 +173,7 @@ hr {
     border: 0;
     height: 1px;
     background: LightGrey;
-    margin: 0 0 24px;
+    margin: 0 0 30px;
 }
 
 a {
@@ -241,158 +248,6 @@ input::placeholder {
 }
 
 /*
-    Objects: section
-    ---
-    Creates vertical whitespace between adjacent sections inside a row
-*/
-
-.o-section {
-    position: relative;
-}
-
-.o-section + .o-section {
-    padding-top: 24px;
-}
-
-@media (min-width: 768px) {
-    .o-section--lg + .o-section--lg,
-    .o-section--xl + .o-section--xl {
-        padding-top: 48px;
-    }
-}
-
-@media (min-width: 992px) {
-    .o-section--xl + .o-section--xl {
-        padding-top: 72px;
-    }
-}
-
-/*
-    Objects: Layout
-    ---
-    The layout object provides us with a column-style layout system. This object
-    contains the basic structural elements, but classes should be complemented
-    with width utilities
-*/
-
-.o-layout {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.o-layout__item {
-    width: 100%;
-}
-
-/* gutter modifiers, these affect o-layout__item too */
-
-.o-layout--gutter {
-    margin: 0 -12px;
-}
-
-.o-layout--gutter > .o-layout__item {
-    padding: 0 12px;
-}
-
-.o-layout--gutter-sm {
-    margin: 0 -6px;
-}
-
-.o-layout--gutter-sm > .o-layout__item {
-    padding: 0 6px;
-}
-
-.o-layout--gutter-lg {
-    margin: 0 -24px;
-}
-
-.o-layout--gutter-lg > .o-layout__item {
-    padding: 0 24px;
-}
-
-.o-layout--gutter-xl {
-    margin: 0 -48px;
-}
-
-.o-layout--gutter-xl > .o-layout__item {
-    padding: 0 48px;
-}
-
-/* reverse horizontal row modifier */
-
-.o-layout--row-reverse {
-    flex-direction: row-reverse;
-}
-
-/* Horizontal alignment modifiers*/
-
-.o-layout--justify-start {
-    justify-content: flex-start;
-}
-
-.o-layout--justify-end {
-    justify-content: flex-end;
-}
-
-.o-layout--justify-center {
-    justify-content: center;
-}
-
-.o-layout--justify-space-around {
-    justify-content: space-around;
-}
-
-.o-layout--justify-space-evenly {
-    justify-content: space-evenly;
-}
-
-.o-layout--justify-space-between {
-    justify-content: space-between;
-}
-
-/* Vertical alignment modifiers */
-
-.o-layout--align-start {
-    align-items: flex-start;
-}
-
-.o-layout--align-end {
-    align-items: flex-end;
-}
-
-.o-layout--align-center {
-    align-items: center;
-}
-
-.o-layout--align-baseline {
-    align-items: baseline;
-}
-
-/* Vertical alignment modifiers that only work if there is one than one flex item */
-
-.o-layout--align-content-start {
-    align-content: start;
-}
-
-.o-layout--align-content-end {
-    align-content: end;
-}
-
-.o-layout--align-content-center {
-    align-content: center;
-}
-
-.o-layout--align-content-space-around {
-    align-content: space-around;
-}
-
-.o-layout--align-content-space-between {
-    align-content: space-between;
-}
-
-/*
     Objects: List
     ---
     Small reusable object to remove default list styling from lists
@@ -458,6 +313,131 @@ input::placeholder {
     ---
     Website main logo
 */
+
+.c-logo {
+    margin: 0;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 20px;
+    color: #fff;
+}
+
+/*
+    Component: App
+    ---
+    Global app component
+*/
+
+.c-app {
+    min-height: 100vh;
+    position: relative;
+    z-index: 10;
+}
+
+.c-app__logo,
+.c-app__topbar,
+.c-app__sidebar,
+.c-app__main {
+    position: relative;
+}
+
+.c-app__logo {
+    background-color: var(--color-neutral-xx-dark);
+    padding: 25px;
+}
+
+.c-app__topbar {
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,.04);
+    z-index: 102;
+}
+
+.c-app__sidebar {
+    background-color: var(--color-neutral-x-dark);
+    position: sticky;
+    top: 0;
+}
+
+.c-app__main {
+    background-color: var(--color-neutral-xxxx-light);
+    z-index: 101;
+}
+
+.c-app__sidebar-content,
+.c-app__main-content {
+    height: calc(100vh - 70px);
+    overflow: auto;
+}
+
+.c-app__main-content {
+    padding: 30px 30px 0;
+}
+
+@media (min-width: 992px) {
+    .c-app {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        grid-template-rows: auto 1fr;
+    }
+}
+
+/*
+    Component: Main Navigation
+    ---
+    Main navigation component
+*/
+
+.c-main-nav__item {
+    margin: 5px 0;
+}
+
+.c-main-nav__link {
+    display: flex;
+    -ms-align-items: center;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    line-height: 20px;
+    padding: 15px 25px 15px 20px;
+    border-left: 5px solid transparent;
+    transition: all var(--transition-beta);
+}
+
+.c-main-nav__link:hover {
+    transition: all var(--transition-alpha);
+}
+
+.c-main-nav__link,
+.c-main-nav__link:hover,
+.c-main-nav__link:visited {
+    color: #fff;
+}
+
+.c-main-nav__link:hover,
+.c-main-nav__link:focus,
+.is-selected .c-main-nav__link {
+    color: #fff;
+    background-color: var(--color-neutral-xx-dark);
+    border-color: var(--color-alpha);
+}
+
+.c-main-nav__icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    fill: var(--color-neutral-light);
+    transition: fill var(--transition-alpha);
+}
+
+.c-main-nav__link:hover .c-main-nav__icon,
+.c-main-nav__link:focus .c-main-nav__icon,
+.is-selected .c-main-nav__icon {
+    fill: var(--color-alpha);
+}
 
 /*
     Component: Card
@@ -615,205 +595,6 @@ input::placeholder {
 
 .u-text-sm {
     font-size: 14px;
-}
-
-/*
-    Utility: Widths
-    ---
-    Utility classes to put specific widths onto elements
-    Will be mostly used on o-layout__item
-*/
-
-.u-width-auto {
-    width: auto !important;
-}
-
-.u-1-of-2 {
-    width: 50% !important;
-}
-
-.u-1-of-3 {
-    width: 33.3333333333% !important;
-}
-
-.u-2-of-3 {
-    width: 66.6666666667% !important;
-}
-
-.u-1-of-4 {
-    width: 25% !important;
-}
-
-.u-3-of-4 {
-    width: 75% !important;
-}
-
-.u-1-of-5 {
-    width: 20% !important;
-}
-
-.u-2-of-5 {
-    width: 40% !important;
-}
-
-.u-3-of-5 {
-    width: 60% !important;
-}
-
-.u-4-of-5 {
-    width: 80% !important;
-}
-
-.u-1-of-6 {
-    width: 16.6666666667% !important;
-}
-
-.u-5-of-6 {
-    width: 83.3333333333% !important;
-}
-
-@media (min-width: 576px) {
-    .u-1-of-2-bp1 {
-        width: 50% !important;
-    }
-    .u-1-of-3-bp1 {
-        width: 33.3333333333% !important;
-    }
-    .u-2-of-3-bp1 {
-        width: 66.6666666667% !important;
-    }
-    .u-1-of-4-bp1 {
-        width: 25% !important;
-    }
-    .u-3-of-4-bp1 {
-        width: 75% !important;
-    }
-    .u-1-of-5-bp1 {
-        width: 20% !important;
-    }
-    .u-2-of-5-bp1 {
-        width: 40% !important;
-    }
-    .u-3-of-5-bp1 {
-        width: 60% !important;
-    }
-    .u-4-of-5-bp1 {
-        width: 80% !important;
-    }
-    .u-1-of-6-bp1 {
-        width: 16.6666666667% !important;
-    }
-    .u-5-of-6-bp1 {
-        width: 83.3333333333% !important;
-    }
-}
-
-@media (min-width: 768px) {
-    .u-1-of-2-bp2 {
-        width: 50% !important;
-    }
-    .u-1-of-3-bp2 {
-        width: 33.3333333333% !important;
-    }
-    .u-2-of-3-bp2 {
-        width: 66.6666666667% !important;
-    }
-    .u-1-of-4-bp2 {
-        width: 25% !important;
-    }
-    .u-3-of-4-bp2 {
-        width: 75% !important;
-    }
-    .u-1-of-5-bp2 {
-        width: 20% !important;
-    }
-    .u-2-of-5-bp2 {
-        width: 40% !important;
-    }
-    .u-3-of-5-bp2 {
-        width: 60% !important;
-    }
-    .u-4-of-5-bp2 {
-        width: 80% !important;
-    }
-    .u-1-of-6-bp2 {
-        width: 16.6666666667% !important;
-    }
-    .u-5-of-6-bp2 {
-        width: 83.3333333333% !important;
-    }
-}
-
-@media (min-width: 992px) {
-    .u-1-of-2-bp3 {
-        width: 50% !important;
-    }
-    .u-1-of-3-bp3 {
-        width: 33.3333333333% !important;
-    }
-    .u-2-of-3-bp3 {
-        width: 66.6666666667% !important;
-    }
-    .u-1-of-4-bp3 {
-        width: 25% !important;
-    }
-    .u-3-of-4-bp3 {
-        width: 75% !important;
-    }
-    .u-1-of-5-bp3 {
-        width: 20% !important;
-    }
-    .u-2-of-5-bp3 {
-        width: 40% !important;
-    }
-    .u-3-of-5-bp3 {
-        width: 60% !important;
-    }
-    .u-4-of-5-bp3 {
-        width: 80% !important;
-    }
-    .u-1-of-6-bp3 {
-        width: 16.6666666667% !important;
-    }
-    .u-5-of-6-bp3 {
-        width: 83.3333333333% !important;
-    }
-}
-
-@media (min-width: 1200px) {
-    .u-1-of-2-bp4 {
-        width: 50% !important;
-    }
-    .u-1-of-3-bp4 {
-        width: 33.3333333333% !important;
-    }
-    .u-2-of-3-bp4 {
-        width: 66.6666666667% !important;
-    }
-    .u-1-of-4-bp4 {
-        width: 25% !important;
-    }
-    .u-3-of-4-bp4 {
-        width: 75% !important;
-    }
-    .u-1-of-5-bp4 {
-        width: 20% !important;
-    }
-    .u-2-of-5-bp4 {
-        width: 40% !important;
-    }
-    .u-3-of-5-bp4 {
-        width: 60% !important;
-    }
-    .u-4-of-5-bp4 {
-        width: 80% !important;
-    }
-    .u-1-of-6-bp4 {
-        width: 16.6666666667% !important;
-    }
-    .u-5-of-6-bp4 {
-        width: 83.3333333333% !important;
-    }
 }
 
 /*------------------------------------*\
