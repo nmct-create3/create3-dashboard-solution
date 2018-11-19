@@ -484,16 +484,19 @@ input::placeholder {
 .c-search {
     display: flex;
     align-items: center;
+    flex-direction: row-reverse;
     width: 100%;
 }
 
 .c-search__input {
+    all: unset;
     width: 100%;
 }
 
 .c-search__button {
     display: block;
     background-color: transparent;
+    margin-right: var(--whitespace-sm);
     /* border: none; */
 }
 
@@ -501,6 +504,7 @@ input::placeholder {
     display: block;
     width: 16px;
     height: 16px;
+    fill: var(--color-neutral-x-light);
 }
 
 /*
