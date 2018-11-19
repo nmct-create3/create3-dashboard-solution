@@ -471,37 +471,71 @@ input::placeholder {
 }
 
 /*
-    Component: Card
-    ---
-    Card with box shadow
+    Component: topbar
 */
 
-.c-card {
-    background-color: white;
-    margin-bottom: 24px;
-    border-radius: var(--radius);
-    box-shadow: 0 0 0 1px rgba(0,0,0, 0.05), 0 2px 4px rgba(0,0,0,.075);
-    overflow: hidden;
+
+.c-topbar {
+    padding: 0 var(--whitespace-lg);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 
-/* Add padding to child for more flexibility */
-.c-card__body,
-.c-card__footer {
-    padding: 24px 24px 0;
-    overflow: auto; /* Fix margin collapse */
+/*
+    Component: search
+*/
+
+.c-search {
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
-.c-card__footer {
-    text-align: center;
-    border-top: 1px solid var(--color-neutral-light);
-    background-color: white;
+.c-search__input {
+    width: 100%;
 }
 
-.c-card__title {
-    text-align: center;
-    font-size: 18px;
-    line-height: 24px;
-    font-weight: 600;
+.c-search__button {
+    display: block;
+    background-color: transparent;
+    /* border: none; */
+}
+
+.c-search__icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+/*
+    Component: Dashboard
+    ---
+    Dashboard component with CSS grid
+*/
+
+.c-dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: var(--whitespace-lg);
+    margin-bottom: var(--whitespace-md);
+}
+
+.c-dashboard__item {
+    box-shadow: var(--box-shadow);
+    background-color: #fff;
+    padding: var(--whitespace-md) var(--whitespace-md) 0;
+}
+
+@media screen and (min-width: 992px) {
+    .c-dashboard {
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .c-dashboard__item {
+        grid-column: span 12;
+    }
 }
 
 /*
@@ -626,6 +660,39 @@ input::placeholder {
 
 .u-text-sm {
     font-size: 14px;
+}
+
+/*
+    Utilities: span
+    Utility classes to span grid items across the x and y axis
+*/
+
+/* x: horizontal */
+
+.u-x-span-3 {
+    grid-column: span 3;
+}
+
+.u-x-span-4 {
+    grid-column: span 4;
+}
+
+.u-x-span-6 {
+    grid-column: span 6;
+}
+
+.u-x-span-8 {
+    grid-column: span 8;
+}
+
+.u-x-span-9 {
+    grid-column: span 9;
+}
+
+/* y: vertical */
+
+.u-y-span-2 {
+    grid-row: span 2;
 }
 
 /*------------------------------------*\
