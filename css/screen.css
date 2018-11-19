@@ -120,9 +120,10 @@ h1 {
 }
 
 h2 {
-    font-size: 32px;
+    font-size: 28px;
+    font-weight: normal;
     line-height: 40px;
-    margin: 0 0 var(--whitespace-md);
+    margin: 0 0 var(--whitespace-lg);
 }
 
 h3 {
