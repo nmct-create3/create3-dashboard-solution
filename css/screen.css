@@ -346,33 +346,24 @@ input::placeholder {
 .c-app__logo {
     background-color: var(--color-neutral-xx-dark);
     padding: 25px;
+    z-index: 104;
 }
 
 .c-app__topbar {
     background-color: #fff;
     box-shadow: 0 2px 6px rgba(0,0,0,.04);
-    z-index: 102;
+    z-index: 103;
 }
 
 .c-app__sidebar {
     background-color: var(--color-neutral-x-dark);
-    position: sticky;
-    top: 0;
+    z-index: 102;
 }
 
 .c-app__main {
     background-color: var(--color-neutral-xxxx-light);
-    z-index: 101;
-}
-
-.c-app__sidebar-content,
-.c-app__main-content {
-    height: calc(100vh - 70px);
-    overflow: auto;
-}
-
-.c-app__main-content {
     padding: 30px 30px 0;
+    z-index: 101;
 }
 
 @media (min-width: 992px) {
@@ -380,6 +371,30 @@ input::placeholder {
         display: grid;
         grid-template-columns: 260px 1fr;
         grid-template-rows: auto 1fr;
+    }
+
+    /* sticky positions */
+    /* solution 1 */
+
+    /* .c-app__topbar,
+    .c-app__logo {
+        position: sticky;
+        top: 0;
+    }
+
+    .c-app__sidebar {
+        position: sticky;
+        top: 70px;
+        height: calc(100vh - 70px);
+        overflow: auto;
+    } */
+
+    /* Solution 2 */
+
+    .c-app__sidebar,
+    .c-app__main {
+        height: calc(100vh - 70px);
+        overflow: auto;
     }
 }
 
