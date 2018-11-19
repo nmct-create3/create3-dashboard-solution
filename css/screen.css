@@ -351,7 +351,7 @@ input::placeholder {
 
 .c-app__topbar {
     background-color: #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,.04);
+    box-shadow: 0 0 10px rgba(0,0,0,.05);
     z-index: 103;
 }
 
@@ -373,8 +373,15 @@ input::placeholder {
         grid-template-rows: auto 1fr;
     }
 
-    /* sticky positions */
-    /* solution 1 */
+    /* Scroll behaviour */
+
+    /*
+        Solution 1
+        Laat toe om overal te scrollen om de main te laten scrollen.
+        Tenzij de navigatie niet meer helemaal in de viewport past, dan kan je ook in sidebar scrollen.
+        Zorgt er ook voor dat c-app__main onder c-app__topbar verdwijnt.
+        Is meer "webby".
+    */
 
     /* .c-app__topbar,
     .c-app__logo {
@@ -389,7 +396,11 @@ input::placeholder {
         overflow: auto;
     } */
 
-    /* Solution 2 */
+    /*
+        Solution 2
+        Zorgt er voor dat je enkel in de main of de sidebar kan scrollen.
+        Is meer "appy".
+    */
 
     .c-app__sidebar,
     .c-app__main {
