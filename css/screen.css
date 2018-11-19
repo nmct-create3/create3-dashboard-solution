@@ -229,19 +229,14 @@ input::placeholder {
 
 .o-row {
     position: relative;
-    padding: 24px 24px 0;
+    padding: var(--whitespace-md) var(--whitespace-md) 0;
 }
 
 /* size modifiers */
 
 .o-row--lg {
-    padding-top: 48px;
-    padding-bottom: 24px;
-}
-
-.o-row--xl {
-    padding-top: 72px;
-    padding-bottom: 48px;
+    padding-top: calc(var(--whitespace-md) * 2);
+    padding-bottom: var(--whitespace-md);
 }
 
 /*
@@ -372,7 +367,6 @@ input::placeholder {
 
 .c-app__main {
     background-color: var(--color-neutral-xxxx-light);
-    padding: var(--whitespace-xl) var(--whitespace-xl) var(--baseline);
     z-index: 101;
 }
 
@@ -427,7 +421,7 @@ input::placeholder {
 */
 
 .c-main-nav__item {
-    margin: 5px 0;
+    margin: var(--baseline) 0;
 }
 
 .c-main-nav__link {
