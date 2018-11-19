@@ -230,14 +230,7 @@ input::placeholder {
 
 .o-row {
     position: relative;
-    padding: var(--whitespace-md) var(--whitespace-md) 0;
-}
-
-/* size modifiers */
-
-.o-row--lg {
-    padding-top: calc(var(--whitespace-md) * 2);
-    padding-bottom: var(--whitespace-md);
+    padding: var(--whitespace-lg) var(--whitespace-lg) var(--baseline);
 }
 
 /*
