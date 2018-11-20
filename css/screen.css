@@ -414,6 +414,10 @@ input::placeholder {
     Main navigation component
 */
 
+.c-main-nav__list {
+    margin-bottom: 0;
+}
+
 .c-main-nav__item {
     margin: var(--baseline) 0;
 }
