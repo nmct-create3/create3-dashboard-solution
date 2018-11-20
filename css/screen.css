@@ -602,13 +602,12 @@ input::placeholder {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: var(--whitespace-lg);
+    align-items: stretch;
     margin-bottom: var(--whitespace-md);
 }
 
 .c-dashboard__item {
-    box-shadow: var(--box-shadow);
-    background-color: #fff;
-    padding: var(--whitespace-md) var(--whitespace-md) 0;
+    display: flex;
 }
 
 @media screen and (min-width: 992px) {
@@ -625,18 +624,23 @@ input::placeholder {
     Component: Card
 */
 
-.c-card__header {
-    margin-bottom: var(--whitespace-md);
-}
-
-.c-card__title {
-    margin-bottom: 0;
+.c-card {
+    width: 100%;
+    box-shadow: var(--box-shadow);
+    background-color: #fff;
+    padding: var(--whitespace-md) var(--whitespace-md) 0;
+    overflow: auto;
 }
 
 .c-card__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: calc(var(--baseline) * 2);
+}
+
+.c-card__title {
+    margin-bottom: 0;
 }
 
 /*
@@ -704,6 +708,46 @@ input::placeholder {
     fill: var(--color-neutral-light);
 }
 
+/*
+    Component: Legends
+    ---
+    Graph legends
+*/
+
+.c-legends {
+    display: flex;
+    align-items: center;
+}
+
+.c-legend {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+
+.c-legend + .c-legend {
+    margin-left: var(--whitespace-lg);
+}
+
+.c-legend__symbol {
+    display: block;
+    margin-right: calc(var(--baseline) * 2);
+}
+
+.c-legend__symbol--line {
+    height: var(--baseline);
+    width: var(--whitespace-sm);
+    border-radius: var(--baseline);
+}
+
+.c-legend__symbol--bg-alpha {
+    background-color: var(--color-alpha);
+}
+
+.c-legend__symbol--bg-neutral-xx-light {
+    background-color: var(--color-neutral-xx-light);
+}
+
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
@@ -736,8 +780,12 @@ input::placeholder {
     margin-bottom: 0 !important;
 }
 
-.u-mb-xs {
+.u-mb-xxs {
     margin-bottom: var(--baseline) !important;
+}
+
+.u-mb-xs {
+    margin-bottom: calc(var(--baseline) * 2) !important;
 }
 
 .u-mb-sm {
