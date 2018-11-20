@@ -24,6 +24,12 @@
     /* Shadows */
     --box-shadow: 0 2px 6px rgba(0,0,0,.05);
 
+    --input-shadow: 0 2px 3px rgba(0,0,0,.05);
+    --focus-shadow: 0 0 5px var(--color-alpha-light);
+
+    /* radius */
+    --radius: 4px;
+
     /* Whitespace */
     --baseline: 5px;
     --whitespace-xs: calc(var(--baseline) * 2);
@@ -616,6 +622,63 @@ input::placeholder {
 }
 
 /*
+    Component: Card
+*/
+
+.c-card__header {
+    margin-bottom: var(--whitespace-md);
+}
+
+.c-card__title {
+    margin-bottom: 0;
+}
+
+.c-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*
+    Component: Input
+    ---
+    Class to put on all input="text" like form inputs
+*/
+
+.c-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    border: 1px solid var(--color-neutral-xx-light);
+    border-radius: var(--radius);
+    background-color: #fff;
+    color: var(--color-neutral-xxxx-dark);
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 20px;
+    padding: 4px 10px;
+    outline: none;
+    box-shadow: var(--inset-shadow);
+    transition: border var(--transition-alpha);
+    box-shadow: var(--input-shadow);
+}
+
+.c-input:hover {
+    border-color: var(--color-neutral-x-light);
+}
+
+.c-input:focus,
+.c-input:active {
+    border-color: var(--color-alpha-light);
+    box-shadow: var(--focus-shadow);
+}
+
+.c-input:focus + .c-label--floating {
+	transform: translateY( -24px );
+}
+
+/*
     Component: Custom Select
     ---
     Custom select dropdown
@@ -627,12 +690,16 @@ input::placeholder {
     position: relative;
 }
 
+.c-custom-select__input {
+    padding-right: calc(var(--baseline) * 7);
+}
+
 .c-custom-select__symbol {
-    width: 24px;
-    height: 24px;
+    width: 11px;
+    height: 20px;
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 5px;
+    right: 10px;
     pointer-events: none;
     fill: var(--color-neutral-light);
 }
