@@ -93,26 +93,80 @@
                     <div class="c-topbar__quick-nav">
                         <nav class="c-quick-nav">
                             <ul class="o-list c-quick-nav__list">
-                                <li class="c-quick-nav__item"><button class="o-button-reset c-quick-nav__action">
-                                    <svg class="c-quick-nav__icon"><use xlink:href="#c-icon_support"></use></svg>
-                                </button></li>
-                                <li class="c-quick-nav__item"><button class="o-button-reset c-quick-nav__action">
-                                    <svg class="c-quick-nav__icon"><use xlink:href="#c-icon_chat"></use></svg>
-                                </button></li>
-                                <li class="c-quick-nav__item"><button class="o-button-reset c-quick-nav__action">
-                                    <svg class="c-quick-nav__icon"><use xlink:href="#c-icon_notification"></use></svg>
-                                </button></li>
+                                <li class="c-quick-nav__item">
+                                    <a href="#!" class="o-button-reset c-quick-nav__action">
+                                        <svg class="c-quick-nav__icon"><use xlink:href="#c-icon_support"></use></svg>
+                                    </a>
+                                </li>
+                                <li class="c-quick-nav__item">
+                                    <button class="o-button-reset c-quick-nav__action">
+                                        <svg class="c-quick-nav__icon"><use xlink:href="#c-icon_chat"></use></svg>
+                                    </button>
+                                </li>
+                                <li class="c-quick-nav__item">
+                                    <div class="c-dropdown-container">
+                                        <button class="o-button-reset c-quick-nav__action c-dropdown-toggle js-dropdown-toggle">
+                                            <svg class="c-quick-nav__icon"><use xlink:href="#c-icon_notification"></use></svg>
+                                        </button>
+                                        <div class="c-dropdown c-dropdown--lg c-dropdown--right">
+                                            <div class="c-dropdown__header">
+                                                <p class="c-dropdown__title">Notifications</p>
+                                            </div>
+                                            <div class="c-dropdown__body">
+                                                <nav class="c-dropdown__nav">
+                                                    <ul class="o-list c-dropdown__list">
+                                                        <li class="c-dropdown__item">
+                                                            <a href="#!" class="c-dropdown__link">Account settings</a>
+                                                        </li>
+                                                        <li class="c-dropdown__item">
+                                                            <a href="#!" class="c-dropdown__link">Account settings</a>
+                                                        </li>
+                                                        <li class="c-dropdown__item">
+                                                            <a href="#!" class="c-dropdown__link">Feedback</a>
+                                                        </li>
+                                                        <li class="c-dropdown__item">
+                                                            <a href="#!" class="c-dropdown__link">Logout</a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </nav>
                     </div>
                     <div class="c-topbar__user">
-                        <div class="c-user">
-                            <button class="o-button-reset c-user__dropdown-button">
-                                John Doe
-                                <svg class="c-user__dropdown-icon"><use xlink:href="#c-icon_small-down"></use></svg>
-                            </button>
-                            <div class="c-user__avatar">
 
+                        <div class="c-user">
+                            <div class="c-dropdown-container">
+                                <button class="o-button-reset c-user__dropdown-button c-dropdown-toggle js-dropdown-toggle">
+                                    John Doe
+                                    <svg class="c-user__dropdown-icon"><use xlink:href="#c-icon_small-down"></use></svg>
+                                    <div class="c-user__avatar">
+
+                                    </div>
+                                </button>
+                                <div class="c-dropdown c-dropdown--sm c-dropdown--right">
+                                    <div class="c-dropdown__body">
+                                        <nav class="c-dropdown__nav">
+                                            <ul class="o-list c-dropdown__list">
+                                                <li class="c-dropdown__item">
+                                                    <a href="#!" class="c-dropdown__link">Account settings</a>
+                                                </li>
+                                                <li class="c-dropdown__item">
+                                                    <a href="#!" class="c-dropdown__link">Account settings</a>
+                                                </li>
+                                                <li class="c-dropdown__item">
+                                                    <a href="#!" class="c-dropdown__link">Feedback</a>
+                                                </li>
+                                                <li class="c-dropdown__item">
+                                                    <a href="#!" class="c-dropdown__link">Logout</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
