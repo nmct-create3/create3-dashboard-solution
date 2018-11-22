@@ -5,13 +5,14 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Impekable</title>
         <meta name="description" content="This is my HTML5 boilerplate.">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/screen.css">
+		<link rel="stylesheet" href="css/screen.css">
 
-        <script src="./script/app.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+		<script src="app.js"></script>
     </head>
     <body>
         <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -242,15 +243,20 @@
                                     <div class="c-card__header">
                                         <p class="c-card__title">Dashboard item 1</p>
                                         <span class="c-custom-select">
-                                            <select class="c-input c-custom-select__input" class="" name="select1" id="select1">
-                                                <option value="volvo">Last 30 days</option>
-                                                <option value="saab">Last week</option>
-                                                <option value="mercedes">Last year</option>
+                                            <select class="c-input c-custom-select__input js-day-select" class="" name="select1" id="select1">
+												<option value="maandag">Maandag</option>
+												<option value="dinsdag">Dinsdag</option>
+												<option value="woensdag">Woensdag</option>
+												<option value="donderdag">Donderdag</option>
+												<option value="vrijdag">Vrijdag</option>
+												<option value="zaterdag">Zaterdag</option>
+												<option value="zondag">Zondag</option>
                                             </select>
                                             <svg class="c-custom-select__symbol"><use xlink:href="#c-icon_small-down"></use></svg>
                                         </span>
                                     </div>
                                     <div class="c-card__body">
+										<canvas class="js-graph" width="800" height="400"></canvas>
                                         <div class="c-legends u-mb-xs">
                                             <div class="c-legend">
                                                 <div class="c-legend__symbol c-legend__symbol--line c-legend__symbol--bg-alpha"></div>
