@@ -822,9 +822,9 @@ input::placeholder {
 }
 
 .c-legend__symbol--line {
-    height: var(--baseline);
+    height: 4px;
     width: var(--whitespace-sm);
-    border-radius: var(--baseline);
+    border-radius: 4px;
 }
 
 .c-legend__symbol--bg-alpha {
