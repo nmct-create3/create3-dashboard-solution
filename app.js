@@ -6,12 +6,13 @@ const drawChart = ( data, labels ) => {
 	let chart = new Chart(ctx, {
 		type: 'line',
 		data: {
-			labels: labels,
+			labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7"],
 			datasets: [{
 				label: 'Visitors',
 				data: data,
 				borderColor: '#A3A0FB',
 				backgroundColor: '#A3A0FB',
+				pointBackgroundColor: 'white',
 				fill: false,
 				lineTension: .3,
 				borderWidth: 2,
@@ -19,6 +20,7 @@ const drawChart = ( data, labels ) => {
 			}],
 		},
 		options: {
+			defaultFontColor: Chart.defaults.global.defaultFontColor = '#808495',
 			scales: {
 				yAxes: [{
 					ticks: {
@@ -27,8 +29,11 @@ const drawChart = ( data, labels ) => {
 			},
 			legend: {
 				// display: false,
+				position: 'bottom',
 				labels: {
-					defaultFontFamily: Chart.defaults.global.defaultFontFamily = "'Source Sans Pro', 'Helvetica', 'arial', 'sans-serif'"
+					defaultFontFamily: Chart.defaults.global.defaultFontFamily = "'Source Sans Pro', 'Helvetica', 'arial', 'sans-serif'",
+					boxWidth: 15
+					// usePointStyle: true
 				}
 			},
 			responsive: true,
