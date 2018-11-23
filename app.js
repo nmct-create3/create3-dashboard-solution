@@ -11,9 +11,9 @@ const drawChart = ( data, labels ) => {
 				label: 'Visitors',
 				data: data,
 				borderColor: '#A3A0FB',
-				lineTension: .3
 				backgroundColor: '#A3A0FB',
 				fill: false,
+				lineTension: .3,
 				borderWidth: 2,
 				pointRadius: 4,
 			}],
