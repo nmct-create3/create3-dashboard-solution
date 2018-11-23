@@ -409,7 +409,8 @@ input::placeholder {
     .c-app__sidebar,
     .c-app__main {
         height: calc(100vh - var(--top-row-height));
-        overflow: scroll;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 }
 
