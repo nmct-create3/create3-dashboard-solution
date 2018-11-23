@@ -8,11 +8,14 @@ const drawChart = ( data, labels ) => {
 		data: {
 			labels: labels,
 			datasets: [{
-				label: '# of visitors',
+				label: 'Visitors',
 				data: data,
 				borderColor: '#A3A0FB',
-				backgroundColor: 'rgba(0,0,0,0)',
 				lineTension: .3
+				backgroundColor: '#A3A0FB',
+				fill: false,
+				borderWidth: 2,
+				pointRadius: 4,
 			}],
 		},
 		options: {
@@ -23,15 +26,16 @@ const drawChart = ( data, labels ) => {
 				}]
 			},
 			legend: {
+				// display: false,
 				labels: {
-					defaultFontFamily: "'Source Sans Pro', 'Helvetica', 'arial', 'sans-serif'"
+					defaultFontFamily: Chart.defaults.global.defaultFontFamily = "'Source Sans Pro', 'Helvetica', 'arial', 'sans-serif'"
 				}
 			},
 			responsive: true,
 			// maintainAspectRatio: false,
-			
 		}
 	});
+	document.querySelector('.js-chartjsLegend').innerHTML = chart.generateLegend();
 }
 
 const getDataAndLabels = ( json ) => {
