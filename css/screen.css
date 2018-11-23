@@ -11,6 +11,8 @@
     --color-alpha-light: #A3A0FB80;
     --color-alpha: #A3A0FB;
 
+    --color-beta: #3B86FF;
+
     --color-neutral-xxxx-light: #F0F0F7;
     --color-neutral-xxx-light: #EBEBF2;
     --color-neutral-xx-light: #D7DAE2;
@@ -196,20 +198,20 @@ hr {
 
 a {
     transition: all var(--transition-alpha);
-    color: var(--color-alpha);
-    outline-color: var(--color-alpha);
+    color: var(--color-beta);
+    outline-color: var(--color-beta);
     outline-width: medium;
     outline-offset: 2px;
 }
 
 a:visited,
 a:active {
-    color: var(--color-alpha);
+    color: var(--color-beta);
 }
 
 a:hover,
 a:focus {
-    color: var(--color-alpha-light);
+    color: var(--color-alpha);
 }
 
 label,
@@ -382,7 +384,8 @@ input::placeholder {
 
     .c-app {
         display: grid;
-        grid-template-columns: minmax(260px, 1fr) 4fr;
+        /* grid-template-columns: minmax(260px, 1fr) 4fr; */
+        grid-template-columns: 260px 1fr;
         grid-template-rows: auto 1fr;
     }
 
@@ -656,7 +659,7 @@ input::placeholder {
 }
 
 .c-dropdown--notifications {
-    width: 300px;
+    width: 460px;
     margin-right: calc(var(--baseline) * -5);
 }
 
@@ -665,12 +668,20 @@ input::placeholder {
     padding: var(--whitespace-md);
 }
 
+.c-dropdown__footer {
+    border-top: 1px solid var(--color-neutral-xxxx-light);
+}
+
 .c-dropdown__title {
     margin-bottom: 0;
 }
 
 .c-dropdown__body {
     padding: calc(var(--baseline) * 2) var(--whitespace-md);
+}
+
+.c-dropdown__body--lg {
+    padding: var(--whitespace-md) var(--whitespace-lg);
 }
 
 .c-dropdown__list {
@@ -690,6 +701,13 @@ input::placeholder {
 .c-dropdown__link:hover,
 .c-dropdown__link:focus {
     color: var(--color-neutral-x-dark);
+}
+
+.c-dropdown__more-link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: var(--whitespace-md);
 }
 
 /*
@@ -969,8 +987,13 @@ input::placeholder {
     Utility classes to create smaller or bigger test
 */
 
+.u-text-xs {
+    font-size: 11px;
+}
+
 .u-text-sm {
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 20px;
 }
 
 /*
