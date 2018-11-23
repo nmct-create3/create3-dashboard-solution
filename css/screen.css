@@ -826,9 +826,9 @@ input::placeholder {
 .c-legend span {
     display: block;
     margin-right: calc(var(--baseline) * 2);
-    height: 10px;
-    width: 10px;
-    border-radius: 10px;
+    height: 4px;
+    width: var(--whitespace-sm);
+    border-radius: 4px;
 }
 
 .c-legend + .c-legend {
