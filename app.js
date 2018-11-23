@@ -27,6 +27,11 @@ const drawChart = ( data, labels ) => {
 					}
 				}]
 			},
+			tooltips: {
+				xPadding: 10,
+				yPadding: 10,
+				cornerRadius: 0
+			},
 			legend: {
 				// display: false,
 				position: 'bottom',
