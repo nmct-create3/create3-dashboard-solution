@@ -19,6 +19,9 @@ const drawChart = ( data, labels ) => {
 			scales: {
 				yAxes: [{
 					ticks: {
+						min: 0,
+						max: 50,
+						// stepSize: 20
 					}
 				}]
 			},
@@ -28,8 +31,6 @@ const drawChart = ( data, labels ) => {
 				}
 			},
 			responsive: true,
-			// maintainAspectRatio: false,
-			
 		}
 	});
 }
