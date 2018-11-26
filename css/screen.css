@@ -758,6 +758,8 @@ input::placeholder {
 
 .c-card__title {
     margin-bottom: 0;
+    font-size: 18px;
+    line-height: 25px;
 }
 
 /*
@@ -882,6 +884,33 @@ input::placeholder {
 
 .c-legend__symbol--bg-neutral-xx-light {
     background-color: var(--color-neutral-xx-light);
+}
+
+/*
+    Chart
+*/
+
+
+.c-chart {
+    margin: 0 auto;
+    max-width: 150px;
+    display: block;
+}
+
+.c-chart__background {
+    fill: white;
+    stroke: var(--color-neutral-xxx-light);
+    stroke-width: 10;
+}
+
+.c-chart__circle {
+    fill: none;
+    stroke: var(--color-alpha);
+    stroke-width: 10;
+    stroke-dasharray: 40 283;
+    transition: stroke-dasharray .3s ease;
+    transform: rotate(-90deg);
+    transform-origin: center;
 }
 
 /*------------------------------------*\
