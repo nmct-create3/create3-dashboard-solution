@@ -340,39 +340,27 @@ input::placeholder {
 
 .c-app {
     min-height: 100vh;
-    position: relative;
-    z-index: 10;
-}
-
-.c-app__logo,
-.c-app__topbar,
-.c-app__sidebar,
-.c-app__main {
-    position: relative;
 }
 
 .c-app__logo {
     background-color: var(--color-neutral-xx-dark);
     padding: var(--whitespace-lg);
-    z-index: 104;
 }
 
 .c-app__topbar {
     background-color: #fff;
     box-shadow: var(--box-shadow);
-    z-index: 103;
+    z-index: 20;
     display: none;
 }
 
 .c-app__sidebar {
     background-color: var(--color-neutral-x-dark);
-    z-index: 102;
     display: none;
 }
 
 .c-app__main {
     background-color: var(--color-neutral-xxxx-light);
-    z-index: 101;
 }
 
 @media (min-width: 992px) {
@@ -421,7 +409,8 @@ input::placeholder {
     .c-app__sidebar,
     .c-app__main {
         height: calc(100vh - var(--top-row-height));
-        overflow: scroll;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 }
 
