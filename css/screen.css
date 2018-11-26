@@ -45,7 +45,7 @@
     --top-row-height: calc(var(--baseline) * 14);
 
     /* transitions */
-    --transition-alpha: .1s;
+    --transition-alpha: .2s;
     --transition-beta: 1s;
 }
 
@@ -437,7 +437,9 @@ input::placeholder {
     font-size: 15px;
     line-height: 20px;
     padding: 15px 25px 15px 20px;
-    border-left: 5px solid transparent;
+    border-left: 5px solid var(--color-alpha);
+    transform: translateX(-5px);
+    width: calc(100% + 5px);
     transition: all var(--transition-beta);
 }
 
@@ -456,7 +458,9 @@ input::placeholder {
 .is-selected .c-main-nav__link {
     color: #fff;
     background-color: var(--color-neutral-xx-dark);
-    border-color: var(--color-alpha);
+    /* border-color: var(--color-alpha); */
+    /* border-left-width: 5px; */
+    transform: none;
 }
 
 .c-main-nav__icon {
@@ -630,17 +634,23 @@ input::placeholder {
 }
 
 .c-dropdown-toggle.is-open + .c-dropdown {
-    display: block;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
 }
 
 .c-dropdown {
-    display: none;
+    /* display: none; */
+    opacity: 0;
+    pointer-events: none;
     position: absolute;
     top: 100%;
     margin-top: calc(var(--baseline) * 3);
+    transform: translateY(5px);
     width: 150px;
     background-color: white;
     box-shadow: var(--box-shadow-lg);
+    transition: all var(--transition-alpha);
 }
 
 .c-dropdown--right {
@@ -714,7 +724,10 @@ input::placeholder {
 }
 
 .c-dashboard__item {
-    display: flex;
+    box-shadow: var(--box-shadow);
+    background-color: #fff;
+    padding: var(--whitespace-md) var(--whitespace-md) 0;
+    overflow: auto;
 }
 
 @media screen and (min-width: 992px) {
@@ -733,10 +746,7 @@ input::placeholder {
 
 .c-card {
     width: 100%;
-    box-shadow: var(--box-shadow);
-    background-color: #fff;
-    padding: var(--whitespace-md) var(--whitespace-md) 0;
-    overflow: auto;
+
 }
 
 .c-card__header {
