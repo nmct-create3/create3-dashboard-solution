@@ -7,12 +7,14 @@
         <meta name="description" content="This is my HTML5 boilerplate.">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
         <link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/screen.css">
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
-		<script src="app.js"></script>
+		<script src="script/app.js"></script>
+		<script src="script/dashboard-chart.js"></script>
     </head>
     <body>
         <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -96,24 +98,75 @@
                     <div class="c-topbar__quick-nav">
                         <nav class="c-quick-nav">
                             <ul class="o-list c-quick-nav__list">
-                                <li class="c-quick-nav__item"><button class="o-button-reset c-quick-nav__action">
-                                    <svg class="c-quick-nav__icon"><use xlink:href="#c-icon_support"></use></svg>
-                                </button></li>
-                                <li class="c-quick-nav__item"><button class="o-button-reset c-quick-nav__action">
-                                    <svg class="c-quick-nav__icon"><use xlink:href="#c-icon_chat"></use></svg>
-                                </button></li>
-                                <li class="c-quick-nav__item"><button class="o-button-reset c-quick-nav__action">
-                                    <svg class="c-quick-nav__icon"><use xlink:href="#c-icon_notification"></use></svg>
-                                </button></li>
+                                <li class="c-quick-nav__item">
+                                    <a href="#!" class="o-button-reset c-quick-nav__action">
+                                        <svg class="c-quick-nav__icon"><use xlink:href="#c-icon_support"></use></svg>
+                                    </a>
+                                </li>
+                                <li class="c-quick-nav__item">
+                                    <button class="o-button-reset c-quick-nav__action">
+                                        <svg class="c-quick-nav__icon"><use xlink:href="#c-icon_chat"></use></svg>
+                                    </button>
+                                </li>
+                                <li class="c-quick-nav__item">
+                                    <div class="c-dropdown-container">
+                                        <button class="o-button-reset c-quick-nav__action c-quick-nav__action--has-notifications c-dropdown-toggle js-dropdown-toggle">
+                                            <svg class="c-quick-nav__icon"><use xlink:href="#c-icon_notification"></use></svg>
+                                        </button>
+                                        <div class="c-dropdown c-dropdown--notifications c-dropdown--right">
+                                            <div class="c-dropdown__header">
+                                                <p class="c-dropdown__title u-align-text-center">Notifications</p>
+                                            </div>
+                                            <div class="c-dropdown__body c-dropdown__body--lg">
+                                                <h5 class="u-mb-clear u-text-sm">David Lee</h5>
+                                                <p class="u-text-sm u-color-neutral">
+                                                    Hey, I just read your message. How are you?
+                                                </p>
+                                                <h5 class="u-mb-clear u-text-sm">Jonathan Chen</h5>
+                                                <p class="u-text-sm u-color-neutral">
+                                                    Are you available later today to chat?
+                                                </p>
+                                                <h5 class="u-mb-clear u-text-sm">Jackie Berry</h5>
+                                                <p class="u-text-sm u-color-neutral u-mb-clear">
+                                                    I will be unavailable until after 5pm today.
+                                                </p>
+                                            </div>
+                                            <div class="c-dropdown__footer">
+                                                <p class="u-mb-clear">
+                                                    <a class="c-dropdown__more-link" href="#!">See all</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </nav>
                     </div>
                     <div class="c-topbar__user">
                         <div class="c-user">
-                            <button class="o-button-reset c-user__dropdown-button">
-                                John Doe
-                                <svg class="c-user__dropdown-icon"><use xlink:href="#c-icon_small-down"></use></svg>
-                            </button>
+                            <div class="c-dropdown-container">
+                                <button class="o-button-reset c-user__dropdown-button c-dropdown-toggle js-dropdown-toggle">
+                                    John Doe
+                                    <svg class="c-user__dropdown-icon"><use xlink:href="#c-icon_small-down"></use></svg>
+                                </button>
+                                <div class="c-dropdown c-dropdown--right">
+                                    <div class="c-dropdown__body">
+                                        <nav class="c-dropdown__nav">
+                                            <ul class="o-list c-dropdown__list">
+                                                <li class="c-dropdown__item">
+                                                    <a href="#!" class="c-dropdown__link">Account settings</a>
+                                                </li>
+                                                <li class="c-dropdown__item">
+                                                    <a href="#!" class="c-dropdown__link">Feedback</a>
+                                                </li>
+                                                <li class="c-dropdown__item">
+                                                    <a href="#!" class="c-dropdown__link">Logout</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="c-user__avatar">
 
                             </div>
@@ -187,7 +240,7 @@
                             <div class="c-dashboard__item">
                                 <div class="c-card">
                                     <div class="c-card__header">
-                                        <p class="c-card__title">Dashboard item 1</p>
+                                        <p class="c-card__title">Visitors per day</p>
                                         <span class="c-custom-select">
                                             <select class="c-input c-custom-select__input js-day-select" class="" name="select1" id="select1">
 												<option value="maandag">Maandag</option>
@@ -202,7 +255,7 @@
                                         </span>
                                     </div>
                                     <div class="c-card__body">
-										<canvas class="js-graph" width="900" height="300"></canvas>
+										<canvas class="js-graph" width="3" height="1"></canvas>
                                         <div class="c-legends u-mb-xs">
                                             <div class="c-legend">
                                                 <div class="c-legend__symbol c-legend__symbol--line c-legend__symbol--bg-alpha"></div>
