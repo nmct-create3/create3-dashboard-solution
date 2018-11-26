@@ -1,9 +1,11 @@
 let daySelect,
 	graph;
 
-const drawChart = ( data, labels ) => {
+const drawChart = ( data ) => {
 	let ctx = graph.getContext('2d');
-	let chart = new Chart(ctx, {
+
+	// let chart = new Chart(ctx, {
+	new Chart(ctx, {
 		type: 'line',
 		data: {
 			labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7'],
@@ -46,16 +48,18 @@ const drawChart = ( data, labels ) => {
 	// document.querySelector('.js-chartjsLegend').innerHTML = chart.generateLegend();
 }
 
-const getDataAndLabels = ( json ) => {
-	let data = [],
-		labels = [];
+const getData = ( json ) => {
+	let data = [];
+	// let data = [],
+	// 	labels = [];
 
 	json.map( day => {
-		labels.push( day.tijdstip );
+		// labels.push( day.tijdstip );
 		data.push( day.aantalBezoekers );
 	});
 
-	drawChart( data, labels );
+	// drawChart( data, labels );
+	drawChart( data );
 }
 
 const getVisitorsByDay = ( day ) => {
@@ -64,7 +68,7 @@ const getVisitorsByDay = ( day ) => {
 	fetch( endpoint )
 		.then( r => r.json() )
 		.then( json => {
-			getDataAndLabels( json );
+			getData( json );
 		})
 		.catch( e => console.error( e ) )
 }
