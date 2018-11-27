@@ -717,9 +717,7 @@ input::placeholder {
 
 .c-dashboard {
     display: grid;
-    grid-template-columns: 1fr;
     grid-gap: var(--whitespace-lg);
-    align-items: stretch;
     margin-bottom: var(--whitespace-md);
 }
 
