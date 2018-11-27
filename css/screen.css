@@ -727,7 +727,6 @@ input::placeholder {
     box-shadow: var(--box-shadow);
     background-color: #fff;
     padding: var(--whitespace-md) var(--whitespace-md) 0;
-    overflow: auto;
 }
 
 @media screen and (min-width: 992px) {
