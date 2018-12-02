@@ -743,7 +743,7 @@ input::placeholder {
 
 .c-card {
     width: 100%;
-
+    height: 100%;
 }
 
 .c-card__header {
@@ -884,31 +884,27 @@ input::placeholder {
 }
 
 /*
-    Chart
+    Donut Chart
 */
 
-
-.c-chart {
+.c-donut {
     margin: 0 auto;
     max-width: 150px;
     display: block;
+    transform: rotate(-90deg);
+    transform-origin: center;
 }
 
-.c-chart__background {
-    fill: white;
+.c-donut__circle {
+    r: 45;
+    cx: 50;
+    cy: 50;
+    fill: none;
     stroke: var(--color-neutral-xxx-light);
     stroke-width: 10;
-}
-
-.c-chart__circle {
-    fill: none;
-    stroke: var(--color-alpha);
-    stroke-width: 10;
     stroke-dasharray: 283;
-    stroke-dashoffset: 283;
-    /* stroke-dasharray: 40 283; */
+    stroke-dashoffset: 0;
     transition: stroke-dashoffset .3s ease;
-    transform: rotate(-90deg);
     transform-origin: center;
 }
 
