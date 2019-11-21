@@ -41,9 +41,6 @@
     --global-whitespace-lg: calc(var(--global-baseline) * 5);
     --global-whitespace-xl: calc(var(--global-baseline) * 6);
 
-    /* top row height */
-    --top-row-height: calc(var(--global-baseline) * 14);
-
     /* transitions */
     --global-transition-alpha: .2s;
     --global-transition-beta: 1s;
@@ -339,6 +336,7 @@ input::placeholder {
 */
 
 .c-app {
+    --c-app__topbar-height: calc(var(--global-baseline) * 14);
     min-height: 100vh;
 }
 
@@ -395,8 +393,8 @@ input::placeholder {
 
     .c-app__sidebar {
         position: sticky;
-        top: var(--top-row-height);
-        height: calc(100vh - var(--top-row-height));
+        top: var(--c-app__topbar-height);
+        height: calc(100vh - var(--c-app__topbar-height));
         overflow: auto;
     } */
 
@@ -408,7 +406,7 @@ input::placeholder {
 
     .c-app__sidebar,
     .c-app__main {
-        height: calc(100vh - var(--top-row-height));
+        height: calc(100vh - var(--c-app__topbar-height));
         overflow-y: auto;
         overflow-x: hidden;
     }
