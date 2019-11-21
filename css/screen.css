@@ -726,7 +726,6 @@ input::placeholder {
 .c-dashboard__item {
     box-shadow: var(--global-box-shadow);
     background-color: #fff;
-    padding: var(--global-whitespace-md) var(--global-whitespace-md) 0;
 }
 
 @media screen and (min-width: 992px) {
@@ -752,13 +751,19 @@ input::placeholder {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: var(--global-whitespace-md);
+    /* margin-bottom: var(--global-whitespace-md); */
 }
 
 .c-card__title {
     margin-bottom: 0;
     font-size: 18px;
     line-height: 25px;
+}
+
+.c-card__header,
+.c-card__body {
+    overflow: auto;
+    padding: var(--global-whitespace-md) var(--global-whitespace-md) 0;
 }
 
 /*
