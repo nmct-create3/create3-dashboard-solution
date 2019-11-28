@@ -762,8 +762,16 @@ input::placeholder {
 
 .c-card__header,
 .c-card__body {
-    overflow: auto;
-    padding: var(--global-whitespace-md) var(--global-whitespace-md) 0;
+    padding: var(--global-whitespace-md);
+}
+
+.c-card__header {
+    padding-bottom: 0;
+}
+
+.c-card__header > *:last-child,
+.c-card__body > *:last-child {
+    margin-bottom: 0;
 }
 
 /*
