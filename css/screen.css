@@ -44,19 +44,8 @@
     /* transitions */
     --global-transition-alpha: .2s;
 	--global-transition-beta: 1s;
-	
-	  --pi: 3.14159265359;
-		/* // all metrics should be in px otherwise calc won't work for some reason. */
-		--loader-viewbox: 50px; /* this variable should be the same as the viewbox attribute in html. */
-		--circle-stroke-width: 5px;
-		--circle-center: calc(var(--loader-viewbox) / 2);
-		/* // The stroke is centered so we need to take that into account. 
-		// Otherwise some parts would be outside of the viewbox */
-		--circle-radius: calc(var(--loader-viewbox) / 2 - var(--circle-stroke-width) / 2); 
-		--circle-circumference: calc(var(--circle-radius) * 2 * var(--pi));
-		--circle-gap: 20px;
-		--circle-circumference-gap: calc(var(--circle-circumference) - var(--circle-gap));
-		--animation-duration: 1.5s;
+
+    --pi: 3.14159265359;
 }
 
 /*------------------------------------*\
@@ -359,60 +348,69 @@ input::placeholder {
 }
 
 .c-loader {
-  width: var(--loader-viewbox);
-  height: var(--loader-viewbox);
-
-  transition: opacity var(--global-transition-beta);
+    /* // all metrics should be in px otherwise calc won't work for some reason. */
+    --loader-viewbox: 50px; /* this variable should be the same as the viewbox attribute in html. */
+    --loader__circle-stroke-width: 5px;
+    --loader__circle-center: calc(var(--loader-viewbox) / 2);
+    /* // The stroke is centered so we need to take that into account.
+    // Otherwise some parts would be outside of the viewbox */
+    --loader__circle-radius: calc(var(--loader-viewbox) / 2 - var(--loader__circle-stroke-width) / 2);
+    --loader__circle-circumference: calc(var(--loader__circle-radius) * 2 * var(--pi));
+    --loader__circle-gap: 20px;
+    --loader__circle-circumference-gap: calc(var(--loader__circle-circumference) - var(--loader__circle-gap));
+    --animation-duration: 1.5s;
+    width: var(--loader-viewbox);
+    height: var(--loader-viewbox);
+    transition: opacity var(--global-transition-beta);
 }
 
 .c-loader__circle {
-  stroke: OrangeRed;
-  fill: transparent;
-  stroke-linecap: round;
-  stroke-width: var(--circle-stroke-width);
-  stroke-dasharray: var(--circle-gap), var(--circle-circumference-gap);
-  stroke-dashoffset: 0;
-  r: var(--circle-radius);
-  cx: var(--circle-center);
-  cy: var(--circle-center);
-  animation: rotateCircle calc(var(--animation-duration) + 0.25s) linear infinite, 
-    strokeCircle var(--animation-duration) infinite, 
+    stroke: OrangeRed;
+    fill: transparent;
+    stroke-linecap: round;
+    stroke-width: var(--loader__circle-stroke-width);
+    stroke-dasharray: var(--loader__circle-gap), var(--loader__circle-circumference-gap);
+    stroke-dashoffset: 0;
+    r: var(--loader__circle-radius);
+    cx: var(--loader__circle-center);
+    cy: var(--loader__circle-center);
+    animation: rotateCircle calc(var(--animation-duration) + 0.25s) linear infinite,
+    strokeCircle var(--animation-duration) infinite,
     strokeColor calc(var(--animation-duration) * 5) calc(var(--animation-duration) / 2) infinite;
-  transform-origin: center;
+    transform-origin: center;
 }
 
 @keyframes rotateCircle {
-  100% {
-    transform: rotate(360deg);
-  }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes strokeCircle {
-  50% {
-    stroke-dasharray: var(--circle-circumference-gap), var(--circle-gap);
-    stroke-dashoffset: 0;
-  }
-  100% {
-    stroke-dasharray: var(--circle-gap), var(--circle-circumference-gap);
-    stroke-dashoffset: calc(var(--circle-circumference) * -1);
-  }
+    50% {
+        stroke-dasharray: var(--loader__circle-circumference-gap), var(--loader__circle-gap);
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dasharray: var(--loader__circle-gap), var(--loader__circle-circumference-gap);
+        stroke-dashoffset: calc(var(--loader__circle-circumference) * -1);
+    }
 }
 
 @keyframes strokeColor {
-  20% {
-    stroke: gold;
-  }
-  40% {
-    stroke: LimeGreen;
-  }
-  60% {
-    stroke: DodgerBlue;
-  }
-  80% {
-    stroke: HotPink;
-  }
+    20% {
+        stroke: gold;
+    }
+    40% {
+        stroke: LimeGreen;
+    }
+    60% {
+        stroke: DodgerBlue;
+    }
+    80% {
+        stroke: HotPink;
+    }
 }
-
 
 /*
     Component: App
