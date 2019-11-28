@@ -1,6 +1,8 @@
+let timeOut;
+
 function handleDropdownButton() {
-	let show = 'is-open';
-	let elements = document.getElementsByClassName('js-dropdown-toggle');
+	let show = 'is-open',
+		elements = document.getElementsByClassName('js-dropdown-toggle');
 
 	//Hide/Show Dropdown Menu on Click
 	for (let i = 0; i < elements.length; i++) {
