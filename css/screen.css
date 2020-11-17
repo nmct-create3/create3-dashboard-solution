@@ -35,11 +35,12 @@
 
     /* Whitespace */
     --global-baseline: 5px;
-    --global-whitespace-xs: calc(var(--global-baseline) * 2);
-    --global-whitespace-sm: calc(var(--global-baseline) * 3);
-    --global-whitespace-md: calc(var(--global-baseline) * 4);
-    --global-whitespace-lg: calc(var(--global-baseline) * 5);
-    --global-whitespace-xl: calc(var(--global-baseline) * 6);
+    --global-whitespace-xxs: var(--global-baseline); /* = 5px */
+    --global-whitespace-xs: calc(var(--global-baseline) * 2); /* = 10px */
+    --global-whitespace-sm: calc(var(--global-baseline) * 3); /* = 15px */
+    --global-whitespace-md: calc(var(--global-baseline) * 4); /* = 20px */
+    --global-whitespace-lg: calc(var(--global-baseline) * 5); /* = 25px */
+    --global-whitespace-xl: calc(var(--global-baseline) * 6); /* = 30px */
 
     /* transitions */
     --global-transition-alpha: .2s;
@@ -123,20 +124,20 @@ h3 {
 
 h1 {
     font-size: 36px;
-    line-height: 48px;
+    line-height: calc(var(--global-baseline) * 10);
     margin: 0 0 var(--global-whitespace-md);
 }
 
 h2 {
     font-size: 28px;
     font-weight: normal;
-    line-height: 40px;
+    line-height: calc(var(--global-baseline) * 8);
     margin: 0 0 var(--global-whitespace-lg);
 }
 
 h3 {
     font-size: 26px;
-    line-height: 32px;
+    line-height: calc(var(--global-baseline) * 6);
     margin: 0 0 var(--global-whitespace-md);
 }
 
@@ -145,7 +146,7 @@ h5,
 h6 {
     font-size: 16px;
     font-weight: 600;
-    line-height: 24px;
+    line-height: calc(var(--global-baseline) * 5);
     margin: 0 0 var(--global-whitespace-md);
 }
 
@@ -172,7 +173,7 @@ li ol {
 blockquote {
     font-style: normal;
     font-size: 23px;
-    line-height: 32px;
+    line-height: calc(var(--global-baseline) * 5);
     margin: 0 0 var(--global-whitespace-md);
 }
 
@@ -986,6 +987,18 @@ input::placeholder {
 */
 
 .c-donut {
+    /* // all metrics should be in px otherwise calc won't work for some reason. */
+    --donut-viewbox: 100px; /* this variable should be the same as the viewbox attribute in html. */
+    --donut__circle-stroke-width: 10px;
+    --donut__circle-center: calc(var(--donut-viewbox) / 2);
+    /* // The stroke is centered so we need to take that into account.
+    // Otherwise some parts would be outside of the viewbox */
+    --donut__circle-radius: calc(var(--donut-viewbox) / 2 - var(--donut__circle-stroke-width) / 2);
+    --donut__circle-circumference: calc(var(--donut__circle-radius) * 2 * var(--pi));
+    --donut__circle-gap: 20px;
+    --donut__circle-circumference-gap: calc(var(--donut__circle-circumference) - var(--donut__circle-gap));
+    /* width: var(--donut-viewbox);
+    height: var(--donut-viewbox); */
     margin: 0 auto;
     max-width: 150px;
     display: block;
@@ -994,13 +1007,13 @@ input::placeholder {
 }
 
 .c-donut__circle {
-    r: 45;
-    cx: 50;
-    cy: 50;
+    r: var(--donut__circle-radius);
+    cx: var(--donut__circle-center);
+    cy: var(--donut__circle-center);
     fill: none;
     stroke: var(--global-color-neutral-xxx-light);
-    stroke-width: 10;
-    stroke-dasharray: 283;
+    stroke-width: var(--donut__circle-stroke-width);
+    stroke-dasharray: var(--donut__circle-circumference);
     stroke-dashoffset: 0;
     transition: stroke-dashoffset .3s ease;
     transform-origin: center;
