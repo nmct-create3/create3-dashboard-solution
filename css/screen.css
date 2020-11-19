@@ -33,9 +33,14 @@
     /* radius */
     --global-borderRadius: 4px;
 
-    /* Whitespace */
-    /* --global-baseline: 5px; */
-    --global-baseline: 0.33333333rem; /* = 5px in case of 15px html font-size */
+    /* Whitespace */    
+    /* 
+        baseline = 5px
+        global font-size = 15px
+        px to rem function:  calc(5rem/15) or simplified: calc(1rem/3)
+        This would equal to 0.33333...rem but let the browser do the math
+    */
+    --global-baseline: calc(1rem / 3); 
     --global-whitespace-xxs: var(--global-baseline); /* = 5px */
     --global-whitespace-xs: calc(var(--global-baseline) * 2); /* = 10px */
     --global-whitespace-sm: calc(var(--global-baseline) * 3); /* = 15px */
@@ -63,7 +68,8 @@
 html {
     /* font-size: 15px; */
     font-size: 93.75%; /* = 15px in case of 16px default font-size */
-    line-height: 1.6666667; /* = 25px */
+    font-size: 125%; /* = 20px in case of 16px default font-size */
+    line-height: 1.6666667em; /* = 25px */
     font-family: "Source Sans Pro", Helvetica, arial, sans-serif;
     color: var(--global-color-neutral-dark);
     box-sizing: border-box;
@@ -329,7 +335,7 @@ input::placeholder {
 
 .c-logo {
     margin: 0;
-    /* font-size: 15px; */
+    font-size: 15px;
     font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -475,7 +481,7 @@ input::placeholder {
         Is meer "webby".
     */
 
-    /* .c-app__topbar,
+    .c-app__topbar,
     .c-app__logo {
         position: sticky;
         top: 0;
@@ -486,7 +492,7 @@ input::placeholder {
         top: var(--c-app__topbar-height);
         height: calc(100vh - var(--c-app__topbar-height));
         overflow: auto;
-    } */
+    }
 
     /*
         Solution 2
@@ -494,12 +500,12 @@ input::placeholder {
         Is meer "appy".
     */
 
-    .c-app__sidebar,
+    /* .c-app__sidebar,
     .c-app__main {
         height: calc(100vh - var(--c-app__topbar-height));
         overflow-y: auto;
         overflow-x: hidden;
-    }
+    } */
 }
 
 /*
