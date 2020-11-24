@@ -1,6 +1,6 @@
 let daySelect, graph, canvas, loaderContainer, loaderDelay, loader;
 
-const hideLoader = function() {
+const hideLoader = function () {
 	clearTimeout(loaderDelay);
 
 	loaderContainer.style.display = 'none';
@@ -8,7 +8,7 @@ const hideLoader = function() {
 	loader.style.opacity = 0;
 };
 
-const showLoader = function() {
+const showLoader = function () {
 	loaderContainer.style.display = 'flex';
 	canvas.style.display = 'none';
 
@@ -17,7 +17,7 @@ const showLoader = function() {
 	}, 1000);
 };
 
-const drawChart = data => {
+const drawChart = (data) => {
 	let ctx = graph.getContext('2d');
 
 	// let chart = new Chart(ctx, {
@@ -34,9 +34,9 @@ const drawChart = data => {
 					pointBackgroundColor: 'white',
 					lineTension: 0.3,
 					borderWidth: 2,
-					pointRadius: 4
-				}
-			]
+					pointRadius: 4,
+				},
+			],
 		},
 		options: {
 			defaultFontColor: (Chart.defaults.global.defaultFontColor = '#808495'),
@@ -45,61 +45,60 @@ const drawChart = data => {
 					{
 						ticks: {
 							min: 0,
-							max: 50
-						}
-					}
-				]
+							max: 50,
+						},
+					},
+				],
 			},
 			tooltips: {
 				xPadding: 10,
 				yPadding: 10,
-				cornerRadius: 0
+				cornerRadius: 0,
 			},
 			legend: {
 				position: 'bottom',
 				align: 'start',
 				labels: {
-					defaultFontFamily: (Chart.defaults.global.defaultFontFamily =
-						"'Source Sans Pro', 'Helvetica', 'arial', 'sans-serif'"),
-					boxWidth: 2
-				}
+					defaultFontFamily: (Chart.defaults.global.defaultFontFamily = "'Source Sans Pro', 'Helvetica', 'arial', 'sans-serif'"),
+					boxWidth: 2,
+				},
 			},
-			responsive: true
-		}
+			responsive: true,
+		},
 	});
 	// document.querySelector('.js-chartjsLegend').innerHTML = chart.generateLegend();
 };
 
-const getData = json => {
+const getData = (json) => {
 	let data = [];
 
-	json.map(day => {
-		data.push(day.AantalBezoekers);
+	json.map((day) => {
+		data.push(day.aantalBezoekers);
 	});
 
 	drawChart(data);
 	hideLoader();
 };
 
-const getVisitorsByDay = day => {
+const getVisitorsByDay = (day) => {
 	// Enable loader
 	showLoader();
 
-	const endpoint = `https://iotcloud-nmct.azurewebsites.net/api/visitors/${day}`;
+	const endpoint = `https://iotcloud-mct.azurewebsites.net/api/visitors/${day}`;
 
 	fetch(endpoint)
-		.then(r => r.json())
-		.then(json => {
+		.then((r) => r.json())
+		.then((json) => {
 			getData(json);
 		})
-		.catch(e => console.error(e));
+		.catch((e) => console.error(e));
 };
 
 const init = () => {
 	daySelect = document.querySelector('.js-day-select');
 	graph = document.querySelector('.js-graph');
 
-	daySelect.addEventListener('change', function(e) {
+	daySelect.addEventListener('change', function (e) {
 		getVisitorsByDay(e.target.value);
 	});
 
@@ -110,6 +109,6 @@ const init = () => {
 	getVisitorsByDay('maandag');
 };
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 	init();
 });
