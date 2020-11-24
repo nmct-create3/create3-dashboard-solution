@@ -468,7 +468,7 @@ input::placeholder {
     background-color: var(--global-color-neutral-xxxx-light);
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62em) {
 
     .c-app__topbar,
     .c-app__sidebar {
@@ -849,7 +849,7 @@ input::placeholder {
     background-color: #fff;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 62em) {
     .c-dashboard {
         grid-template-columns: repeat(12, 1fr);
     }
@@ -1118,7 +1118,7 @@ input::placeholder {
 
 /* x: horizontal */
 
-@media (min-width: 992px) {
+@media (min-width: 62em) {
 
     .u-x-span-3-bp3 {
         grid-column: span 3;
@@ -1144,7 +1144,7 @@ input::placeholder {
 
 /* y: vertical */
 
-@media (min-width: 992px) {
+@media (min-width: 62em) {
 
     .u-y-span-2-bp3 {
         grid-row: span 2;
@@ -1176,8 +1176,8 @@ No media query since this is the default in mobile first design
 @media (min-width: 768px) {}
 */
 
-/* Large devices (landscape tablets, desktops, 992px and up)
-@media (min-width: 992px) {}
+/* Large devices (landscape tablets, desktops, 62em and up)
+@media (min-width: 62em) {}
 */
 
 /* Extra large devices (large desktops, 1200px and up)
