@@ -968,12 +968,12 @@ input::placeholder {
 */
 
 .c-donut {
-    /* // all metrics should be in px otherwise calc won't work for some reason. */
+    /* all metrics should be in px otherwise calc won't work for some reason. */
     --donut-viewbox: 100px; /* this variable should be the same as the viewbox attribute in html. */
     --donut__circle-stroke-width: 10px;
     --donut__circle-center: calc(var(--donut-viewbox) / 2);
-    /* // The stroke is centered so we need to take that into account.
-    // Otherwise some parts would be outside of the viewbox */
+    /* The stroke is centered so we need to take that into account.
+    Otherwise some parts would be outside of the viewbox */
     --donut__circle-radius: calc(var(--donut-viewbox) / 2 - var(--donut__circle-stroke-width) / 2);
     --donut__circle-circumference: calc(var(--donut__circle-radius) * 2 * var(--pi));
     --donut__circle-gap: 20px;
