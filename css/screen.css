@@ -943,13 +943,12 @@ input::placeholder {
 
 
 .c-custom-select {
-    display: flex;
-    align-items: center;
+    display: block;
     position: relative;
 }
 
 .c-custom-select__input {
-    padding-right: calc(var(--global-baseline) * 7);
+    padding-right: calc(var(--global-baseline) * 5);
 }
 
 .c-custom-select__symbol {
@@ -957,7 +956,8 @@ input::placeholder {
     height: calc(16rem / var(--global-root-font-size));
     position: absolute;
     top: 50%;
-    transform: translateY(calc(-8rem / var(--global-root-font-size)));
+    /* transform: translateY(calc(-8rem / var(--global-root-font-size))); */
+    transform: translateY(-50%);
     right: var(--global-whitespace-xs);
     pointer-events: none;
     fill: var(--global-color-neutral-light);
