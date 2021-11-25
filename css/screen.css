@@ -1002,9 +1002,10 @@ input::placeholder {
     transform-origin: center;
 }
 
+/* interval switcher */
+
 .c-interval-switcher {
     display: flex;
-    /* gap: 1rem; */
     margin: 0;
 }
 
@@ -1019,6 +1020,10 @@ input::placeholder {
     background-color: var(--global-color-alpha);
     color: #fff;
     border-radius: 2rem;    
+}
+
+.c-interval-switcher__radio:focus-visible + .c-interval-switcher__label {
+    box-shadow: 0 0 0 3px #a3a0fb80;
 }
 
 /*------------------------------------*\
