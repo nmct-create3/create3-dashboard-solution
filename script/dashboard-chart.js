@@ -92,14 +92,15 @@ const getVisitorsByDay = (day) => {
   // Enable loader
   showLoader()
 
-  // const endpoint = `https://labomctstudenten.azurewebsites.net/api/visitors/${day}`
+  // const endpoint = `https://iotcloud-mct.azurewebsites.net/api/visitors/${day}`;
+  const endpoint = `https://labomctstudenten.azurewebsites.net/api/visitors/${day}`
 
-  // fetch(endpoint)
-  //   .then((r) => r.json())
-  //   .then((json) => {
-  //     getData(json)
-  //   })
-  //   .catch((e) => console.error(e))
+  fetch(endpoint)
+    .then((r) => r.json())
+    .then((json) => {
+      getData(json)
+    })
+    .catch((e) => console.error(e))
 }
 
 const init = () => {

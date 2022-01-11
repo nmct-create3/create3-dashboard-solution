@@ -464,6 +464,8 @@ input::placeholder {
     display: none;
 }
 
+.c-app__sidebar::-webkit-scrollbar {display:none;}
+
 .c-app__main {
     background-color: var(--global-color-neutral-xxxx-light);
 }
@@ -998,6 +1000,30 @@ input::placeholder {
     stroke-dashoffset: 0;
     transition: stroke-dashoffset .3s ease;
     transform-origin: center;
+}
+
+/* interval switcher */
+
+.c-interval-switcher {
+    display: flex;
+    margin: 0;
+}
+
+.c-interval-switcher__label {
+    padding: 0 .875rem .25rem;
+}
+
+.c-interval-switcher__radio:checked + .c-interval-switcher__label {
+    color: var(--global-color-alpha);
+    /* font-weight: bold; */
+    /* text-decoration: underline; */
+    background-color: var(--global-color-alpha);
+    color: #fff;
+    border-radius: 2rem;    
+}
+
+.c-interval-switcher__radio:focus-visible + .c-interval-switcher__label {
+    box-shadow: 0 0 0 3px #a3a0fb80;
 }
 
 /*------------------------------------*\
