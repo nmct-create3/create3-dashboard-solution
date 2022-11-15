@@ -305,41 +305,26 @@
                                     <h2 class="c-card__title">Bezoekers per dag</h2>
                                     <ul class="o-list c-interval-switcher">
                                         <li class="c-interval-switcher__item">
-                                            <input class="o-hide-accessible c-interval-switcher__radio" type="radio"
-                                                name="interval-switch" id="day" checked>
+                                            <input class="o-hide-accessible c-interval-switcher__radio js-visitors-radio" type="radio"
+                                                name="interval-switch" id="day" value="day" checked>
                                             <label class="c-interval-switcher__label" for="day">1 day</label>
                                         </li>
                                         <li class="c-interval-switcher__item">
-                                            <input class="o-hide-accessible c-interval-switcher__radio" type="radio"
-                                                name="interval-switch" id="week">
+                                            <input class="o-hide-accessible c-interval-switcher__radio js-visitors-radio" type="radio"
+                                                name="interval-switch" id="week" value="week">
                                             <label class="c-interval-switcher__label" for="week">1 week</label>
                                         </li>
                                         <li class="c-interval-switcher__item">
-                                            <input class="o-hide-accessible c-interval-switcher__radio" type="radio"
-                                                name="interval-switch" id="month">
+                                            <input class="o-hide-accessible c-interval-switcher__radio js-visitors-radio" type="radio"
+                                                name="interval-switch" id="month" value="month">
                                             <label class="c-interval-switcher__label" for="month">1 month</label>
                                         </li>
                                         <li class="c-interval-switcher__item">
-                                            <input class="o-hide-accessible c-interval-switcher__radio" type="radio"
-                                                name="interval-switch" id="year">
+                                            <input class="o-hide-accessible c-interval-switcher__radio js-visitors-radio" type="radio"
+                                                name="interval-switch" id="year" value="year">
                                             <label class="c-interval-switcher__label" for="year">1 year</label>
                                         </li>
                                     </ul>
-                                    <span class="c-custom-select">
-                                        <select class="c-input c-custom-select__input js-day-select" name="select1"
-                                            id="select1">
-                                            <option value="maandag">Maandag</option>
-                                            <option value="dinsdag">Dinsdag</option>
-                                            <option value="woensdag">Woensdag</option>
-                                            <option value="donderdag">Donderdag</option>
-                                            <option value="vrijdag">Vrijdag</option>
-                                            <option value="zaterdag">Zaterdag</option>
-                                            <option value="zondag">Zondag</option>
-                                        </select>
-                                        <svg class="c-custom-select__symbol">
-                                            <use xlink:href="#c-icon_small-down"></use>
-                                        </svg>
-                                    </span>
                                 </div>
                                 <div class="c-card__body">
                                     <canvas class="js-graph" width="3" height="1"></canvas>

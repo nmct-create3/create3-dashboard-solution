@@ -1,4 +1,42 @@
-let daySelect, graph, canvas, loaderContainer, loaderDelay, loader
+let visitorRanges, graph, canvas, loaderContainer, loaderDelay, loader, chart
+
+const _generateLabels = (amount) => {
+  return new Array(amount)
+    .fill()
+    .map(
+      (_, i) =>
+        `${new Date(
+          new Date().setDate(new Date().getDate() - i),
+        ).toLocaleDateString()}`,
+    )
+    .reverse()
+}
+
+const _generateValues = (amount) => {
+  return new Array(amount)
+    .fill()
+    .map(() => Math.floor(Math.random() * 1000))
+    .reverse()
+}
+
+const sampleData = {
+  day: {
+    labels: [`${new Date().toLocaleDateString()}`],
+    data: [Math.floor(Math.random() * 1000)],
+  },
+  week: {
+    labels: _generateLabels(7),
+    data: _generateValues(7),
+  },
+  month: {
+    labels: _generateLabels(30),
+    data: _generateValues(30),
+  },
+  year: {
+    labels: _generateLabels(365),
+    data: _generateValues(365),
+  },
+}
 
 const hideLoader = function () {
   clearTimeout(loaderDelay)
@@ -17,26 +55,26 @@ const showLoader = function () {
   }, 1000)
 }
 
-const drawChart = (data) => {
+const drawChart = (range = 'day') => {
   let ctx = graph.getContext('2d')
+  const { labels, data } = sampleData[range]
 
-  // let chart = new Chart(ctx, {
-  new Chart(ctx, {
+  if (chart) {
+    chart.data.labels = labels
+    chart.data.datasets[0].data = data
+
+    return chart.update()
+  }
+
+  chart = new Chart(ctx, {
+    // new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: [
-        'Week 1',
-        'Week 2',
-        'Week 3',
-        'Week 4',
-        'Week 5',
-        'Week 6',
-        'Week 7',
-      ],
+      labels,
       datasets: [
         {
           label: 'Visitors',
-          data: exportData,
+          data,
           borderColor: '#A3A0FB',
           backgroundColor: '#A3A0FB',
           pointBackgroundColor: 'white',
@@ -52,7 +90,6 @@ const drawChart = (data) => {
           {
             ticks: {
               min: 0,
-              max: 50,
             },
           },
         ],
@@ -77,45 +114,27 @@ const drawChart = (data) => {
   // document.querySelector('.js-chartjsLegend').innerHTML = chart.generateLegend();
 }
 
-const getData = (json) => {
-  let data = []
-
-  json.map((day) => {
-    data.push(day.aantalBezoekers)
-  })
-
-  drawChart(data)
+const getVisitorsBy = (range) => {
+  showLoader()
+  drawChart(range)
   hideLoader()
 }
 
-const getVisitorsByDay = (day) => {
-  // Enable loader
-  showLoader()
-
-  // const endpoint = `https://iotcloud-mct.azurewebsites.net/api/visitors/${day}`;
-  const endpoint = `https://labomctstudenten.azurewebsites.net/api/visitors/${day}`
-
-  fetch(endpoint)
-    .then((r) => r.json())
-    .then((json) => {
-      getData(json)
-    })
-    .catch((e) => console.error(e))
-}
-
 const init = () => {
-  daySelect = document.querySelector('.js-day-select')
+  visitorRanges = document.querySelectorAll('.js-visitors-radio')
   graph = document.querySelector('.js-graph')
 
-  daySelect.addEventListener('change', function (e) {
-    getVisitorsByDay(e.target.value)
-  })
+  Array.from(visitorRanges).map((range) =>
+    range.addEventListener('change', function (e) {
+      getVisitorsBy(e.target.value)
+    }),
+  )
 
   canvas = document.querySelector('.js-graph')
   loaderContainer = document.querySelector('.js-load-container')
   loader = document.querySelector('.js-loader')
 
-  getVisitorsByDay('maandag')
+  getVisitorsBy('day')
 }
 
 document.addEventListener('DOMContentLoaded', function () {
