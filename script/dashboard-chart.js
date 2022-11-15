@@ -62,6 +62,7 @@ const drawChart = (range = 'day') => {
   if (chart) {
     chart.data.labels = labels
     chart.data.datasets[0].data = data
+    chart.type = range === 'year' ? 'line' : 'bar'
 
     return chart.update()
   }
@@ -80,20 +81,12 @@ const drawChart = (range = 'day') => {
           pointBackgroundColor: 'white',
           borderWidth: 0,
           pointRadius: 4,
+          borderRadius: 4,
         },
       ],
     },
     options: {
-      defaultFontColor: (Chart.defaults.global.defaultFontColor = '#808495'),
-      scales: {
-        yAxes: [
-          {
-            ticks: {
-              min: 0,
-            },
-          },
-        ],
-      },
+      scales: {},
       tooltips: {
         xPadding: 10,
         yPadding: 10,
@@ -103,14 +96,18 @@ const drawChart = (range = 'day') => {
         position: 'bottom',
         align: 'start',
         labels: {
-          defaultFontFamily: (Chart.defaults.global.defaultFontFamily =
-            "'Source Sans Pro', 'Helvetica', 'arial', 'sans-serif'"),
           boxWidth: 2,
         },
       },
       responsive: true,
     },
   })
+
+  Chart.defaults.defaultFontColor = '#808495'
+  Chart.defaults.defaultFontFamily =
+    "'Source Sans Pro', 'Helvetica', 'arial', 'sans-serif'"
+  Chart.defaults.datasets.bar.maxBarThickness = 20
+
   // document.querySelector('.js-chartjsLegend').innerHTML = chart.generateLegend();
 }
 
