@@ -59,6 +59,11 @@ const drawChart = (range = 'day') => {
   let ctx = graph.getContext('2d')
   const { labels, data } = sampleData[range]
 
+  Chart.defaults.defaultFontColor = '#808495'
+  Chart.defaults.defaultFontFamily =
+    "'Source Sans Pro', 'Helvetica', 'arial', 'sans-serif'"
+  Chart.defaults.datasets.bar.maxBarThickness = 20
+
   if (chart) {
     chart.data.labels = labels
     chart.data.datasets[0].data = data
@@ -102,11 +107,6 @@ const drawChart = (range = 'day') => {
       responsive: true,
     },
   })
-
-  Chart.defaults.defaultFontColor = '#808495'
-  Chart.defaults.defaultFontFamily =
-    "'Source Sans Pro', 'Helvetica', 'arial', 'sans-serif'"
-  Chart.defaults.datasets.bar.maxBarThickness = 20
 
   // document.querySelector('.js-chartjsLegend').innerHTML = chart.generateLegend();
 }
